@@ -29,14 +29,20 @@ class Song:
 				number_of_songs = number_of_sets
 				workbook = xlsxwriter.Workbook('Tracks01.xlsx')
 				worksheet = workbook.add_worksheet()
+				header_xlsx = ['NAME','ARTIST','URI','DANCEABILITY','ENERGY','KEY','LOUDNESS','MODE',\
+							       'SPEECHINESS','ACOUSTICNESS','INSTRUMENTALNESS','LIVENESS','VALENCE',\
+							       'TEMPO','DURATION_MS','ID', 'TRACK_HREF', 'ANALYSIS_URL', 'TIME SIGNATURE']
 				row = 0
 				col = 0
 				print("[*] Building xlsx file, it might takes a few minutes")
-
+				counter2 = 0
+				for headers in header:
+					worksheet.write(row, col+counter2, song_info)
+					counter2 += 1
+				
 				for i in range(number_of_songs):
 					off += 40
 					results = sp.current_user_saved_tracks(limit=limit_off, offset=off)
-					array = []
 					for item in results['items']:
 						temprow = []
 						track = item['track']
@@ -66,7 +72,7 @@ class Song:
 						array.append(temprow)
 					for lists in array:
 						if lists[0] != '':
-							counter1 = 0
+							counter1 = 1
 							for song_info in lists:
 								worksheet.write(row, col+counter1, song_info)
 								counter1 += 1

@@ -36,9 +36,10 @@ class Song:
 				col = 0
 				print("[*] Building xlsx file, it might takes a few minutes")
 				counter2 = 0
-				for headers in header:
-					worksheet.write(row, col+counter2, song_info)
+				for headers in header_xlsx:
+					worksheet.write(row, col+counter2, headers)
 					counter2 += 1
+				row += 1
 				
 				for i in range(number_of_songs):
 					off += 40

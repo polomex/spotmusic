@@ -42,6 +42,7 @@ class Song:
 				row += 1
 				
 				for i in range(number_of_songs):
+					array = []
 					off += 40
 					results = sp.current_user_saved_tracks(limit=limit_off, offset=off)
 					for item in results['items']:

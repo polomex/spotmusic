@@ -31,7 +31,7 @@ class Song:
 				worksheet = workbook.add_worksheet()
 				row = 0
 				col = 0
-				print("[*] Building xlsx file")
+				print("[*] Building xlsx file, it might takes a few minutes")
 
 				for i in range(number_of_songs):
 					off += 40
@@ -72,7 +72,7 @@ class Song:
 								counter1 += 1
 							row += 1
 				workbook.close()
-			make_xlsx(50)
+			make_xlsx(66)
 			print(CGREEN + "[*] DONE!" + CEND)
 		else:
 			print(CRED + "Can't get token for " + sys.argv[1] + CEND)
